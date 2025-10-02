@@ -1,0 +1,21 @@
+name: Build
+
+on:
+  push:
+    tags:
+    branches:
+      - main
+      - master
+
+env:
+  SUNXI_TOOLCHAIN: /opt/yi/toolchain-sunxi-musl
+
+jobs:
+  build:
+    runs-on: gcc
+    steps:
+      - uses: actions/checkout@v3
+        with:
+          submodules: recursive
+      - name: Pack
+        run: ls
